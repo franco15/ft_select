@@ -87,5 +87,6 @@ char	**ft_strsplit(char const *s, char c);
 int		ft_isallupper(char *s);
 int		ft_countwords(char const *s, char c);
 int		ft_wordlen(char const *s, char c);
+void	ft_error(char *s);
 
 #endif

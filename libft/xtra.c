@@ -60,3 +60,9 @@ int		ft_wordlen(char const *s, char c)
 	}
 	return (i);
 }
+
+void	ft_error(char *s)
+{
+	ft_printf("DED: %s\n", s);
+	exit(EXIT_FAILURE);
+}

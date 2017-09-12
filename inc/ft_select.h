@@ -15,6 +15,13 @@
 
 # include "../libft/minilibft.h"
 # include <stdio.h>
+# include <termios.h>
+# include <term.h>
+
+typedef struct		s_clect
+{
+	struct termios	term;
+}					t_clect;
 
 /*
 ** ft_select.c
