@@ -17,9 +17,10 @@ static void	set_term(t_clect *t)
 	char	*ttype;
 	char	*term;
 
+	term = 0;
 	if (!(ttype = getenv("TERM")))
 		ft_error("check 'TERM' environment");
-	if (!(term = tcgetent(term, ttype)))
+	if (!(tgetent(term, ttype)))
 		ft_error("did not gotent");
 	if (tcgetattr(0, &t->term))
 		ft_error("did not gotattr");
