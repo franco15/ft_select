@@ -12,27 +12,38 @@
 
 #include "ft_select.h"
 
-static void	set_term(t_clect *t)
+static void	start_term(t_clect *t)
 {
-	char	*ttype;
-	char	*term;
+	int		i;
+	char	*env;
 
-	term = 0;
-	if (!(ttype = getenv("TERM")))
+	if (!(env = getenv("TERM")))
 		ft_error("check 'TERM' environment");
-	if (!(tgetent(term, ttype)))
+	if (!(i = tgetent(NULL, env)))
 		ft_error("did not gotent");
 	if (tcgetattr(0, &t->term))
 		ft_error("did not gotattr");
+	t->term.c_lflag &= ~(ICANON | ECHO);
+	t->term.c_cc[VMIN] = 1;
+	t->term.c_cc[VTIME] = 0;
+	tcsetattr(0, TCSADRAIN, &t->term);
 }
 
 int		main(int ac, char **av)
 {
 	t_clect	t;
+	int i;
+	char	**tmp;
 
 	(void)ac;
 	(void)av;
-	set_term(&t);
+	start_term(&t);
+	if (av[1])
+	{
+		tmp = &av[1];
+		for (i = 0; tmp[i]; i++)
+			printf("%s\n", tmp[i]);
+	}
 	printf("smn\n");
 	return (0);
 }

@@ -36,7 +36,7 @@ $(LIBFT):
 # Compiling
 $(NAME): $(OBJ)
 	@echo "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Compiling... Aguanta"
-	@gcc $(OBJ) $(LNK) -lm -o $(NAME)
+	@gcc $(OBJ) -ltermcap $(LNK) -lm -o $(NAME)
 	@echo "(•̀ᴗ•́)و $(NAME) Kewl!"
 
 # clean rule
