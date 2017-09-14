@@ -31,6 +31,11 @@ typedef struct		s_clect
 int		main(int ac, char **av);
 
 /*
+** keys.c
+*/
+void	read_key(t_clect *t);
+
+/*
 ** signals.c
 */
 void		ft_signals(void);

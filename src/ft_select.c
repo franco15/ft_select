@@ -44,6 +44,7 @@ int		main(int ac, char **av)
 	get_clect(&t);
 	start_term(&t);
 	check_win(0);
+	read_key(&t);
 	if (av[1])
 	{
 		tmp = &av[1];
