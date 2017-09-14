@@ -35,7 +35,7 @@ void		ft_signals(void)
 	signal(SIGILL, safe_exit);
 	signal(SIGTRAP, safe_exit);
 	signal(SIGABRT, safe_exit);
-	signal(SIGEMT, safe_exit);
+	// signal(SIGEMT, safe_exit);
 	signal(SIGFPE, safe_exit);
 	signal(SIGBUS, safe_exit);
 	signal(SIGSEGV, safe_exit);
