@@ -14,16 +14,19 @@
 
 static int	validate_win(t_clect *t)
 {
-	int	i;
+	// int	i;
 
-	i = 0;
+	// i = 0;
 	printf("%d\n", t->row);
-	while (i < t->row)
-		if (t->av1[i])
-			i++;
-	if (i == t->row && t->av1[i])
-		return (0);
-	return (1);
+	if ((int)ft_arrlen((void**)t->av1) == t->row)
+		return (1);
+	return (0);
+
+}
+
+static void	ft_printwin_fd(char *str)
+{
+	ft_putstr_fd(str, 2);
 }
 
 static void	print_win(t_clect *t)
@@ -32,8 +35,9 @@ static void	print_win(t_clect *t)
 
 	i = 0;
 	ft_clearscreen(t->row);
+	ft_cursor_goto(0, 0);
 	while (i < t->row)
-		printf("%s\n", t->av1[i++]);
+		ft_printwin_fd(t->av1[i++]);
 }
 
 void	check_win(int signum)
@@ -43,8 +47,8 @@ void	check_win(int signum)
 	t_clect	*t;
 	struct winsize win;
 
-	t = get_clect(0);
 	signum++;
+	t = get_clect(0);
 	ioctl(STDIN_FILENO, TIOCGWINSZ, &win);
 	t->row = win.ws_row;
 	t->col = win.ws_col;
