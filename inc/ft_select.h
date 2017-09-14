@@ -40,6 +40,12 @@ void		ft_signals(void);
 */
 void	ft_termcmd(char *s);
 t_clect	*get_clect(t_clect *t);
+void	ft_clrscreen(int rows);
+void	ft_cursor_goto(int x, int y);
 
+/*
+** win.c
+*/
+void	check_win(int signum);
 
 #endif
