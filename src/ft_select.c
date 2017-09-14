@@ -31,26 +31,25 @@ static void	start_term(t_clect *t)
 	ft_termcmd("vi");
 }
 
+void	set_t(t_clect *t, int ac, char **av)
+{
+	(void)ac;
+	t->av1 = &av[1];
+}
+
 int		main(int ac, char **av)
 {
 	t_clect	t;
-	int i;
-	char	**tmp;
 
 	(void)av;
 	if (ac < 2)
 		ft_error("No arguments");
 	ft_signals();
+	set_t(&t, ac, av);
 	get_clect(&t);
 	start_term(&t);
 	check_win(0);
 	read_key(&t);
-	if (av[1])
-	{
-		tmp = &av[1];
-		for (i = 0; tmp[i]; i++)
-			printf("%s\n", tmp[i]);
-	}
 	printf("smn\n");
 	return (0);
 }

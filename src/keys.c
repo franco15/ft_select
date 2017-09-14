@@ -14,7 +14,19 @@
 
 void	read_key(t_clect *t)
 {
-	(void)t;
+	int		i;
+	long	k;
 
-	printf("smn\n");
+	(void)t;
+	k = 0;
+	while ((read(0, &k, 8)) != 0)
+	{
+		i = 1;
+		if (k == KEY_ESC)
+			safe_exit(0);
+		else
+			i = 0;
+		(i > 0) ? check_win(0) : 0;
+		k = 0;
+	}
 }

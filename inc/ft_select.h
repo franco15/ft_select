@@ -20,8 +20,14 @@
 # include <sys/ioctl.h>
 # include "../libft/minilibft.h"
 
+# define KEY_SPC	32
+# define KEY_ESC	27
+
 typedef struct		s_clect
 {
+	int				row;
+	int				col;
+	char			**av1;
 	struct termios	term;
 }					t_clect;
 
@@ -38,14 +44,15 @@ void	read_key(t_clect *t);
 /*
 ** signals.c
 */
-void		ft_signals(void);
+void	safe_exit(int signum);
+void	ft_signals(void);
 
 /*
 ** utils.c
 */
 void	ft_termcmd(char *s);
 t_clect	*get_clect(t_clect *t);
-void	ft_clrscreen(int rows);
+void	ft_clearscreen(int rows);
 void	ft_cursor_goto(int x, int y);
 
 /*

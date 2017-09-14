@@ -12,13 +12,13 @@
 
 #include "ft_select.h"
 
-static void	safe_exit(int signum)
+void	safe_exit(int signum)
 {
-	t_clect	*t;
+	// t_clect	*t;
 
 	signum++;
-	t = get_clect(0);
-	ft_memdel((void**)&t);
+	// t = get_clect(0);
+	// ft_memdel((void**)&t);
 	ft_termcmd("te");
 	ft_termcmd("ve");
 	exit(1);
@@ -35,7 +35,7 @@ void		ft_signals(void)
 	signal(SIGILL, safe_exit);
 	signal(SIGTRAP, safe_exit);
 	signal(SIGABRT, safe_exit);
-	// signal(SIGEMT, safe_exit);
+	signal(SIGEMT, safe_exit);
 	signal(SIGFPE, safe_exit);
 	signal(SIGBUS, safe_exit);
 	signal(SIGSEGV, safe_exit);
@@ -53,5 +53,5 @@ void		ft_signals(void)
 	signal(SIGUSR2, safe_exit);
 	// signal(SIGTSTP, suspend_term);
 	// signal(SIGCONT, continue_term);
-	// signal(SIGWINCH, window_validation);
+	signal(SIGWINCH, check_win);
 }

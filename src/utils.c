@@ -19,7 +19,7 @@ void	ft_termcmd(char *s)
 	ft_putstr_fd(tgetstr(s, NULL), 2);
 }
 
-t_clect				*get_clect(t_clect *t)
+t_clect	*get_clect(t_clect *t)
 {
 	static	t_clect *tt = NULL;
 
@@ -28,7 +28,7 @@ t_clect				*get_clect(t_clect *t)
 	return (tt);
 }
 
-void	ft_clrscreen(int rows)
+void	ft_clearscreen(int rows)
 {
 	while (--rows >= 0)
 	{
