@@ -1,6 +1,6 @@
 NAME = libft.a
 
-SRC =	ft_printf.c put.c strings.c strings2.c strings3.c conv.c mem.c\
+SRC =	ft_printf.c put.c fd.c strings.c strings2.c strings3.c conv.c mem.c\
 		mem2.c array.c xtra.c\
 
 OBJ = $(SRC:.c=.o)

@@ -30,6 +30,12 @@ char	**ft_arrdup(char **s);
 char	*ft_itoa_base(long long int n, int b);
 
 /*
+** fd.c
+*/
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char const *s, int fd);
+
+/*
 ** ft_printf.c
 */
 void	ft_printf(const char *format, ...);

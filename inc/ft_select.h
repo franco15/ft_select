@@ -13,10 +13,12 @@
 #ifndef FT_SELECT
 # define FT_SELECT
 
-# include "../libft/minilibft.h"
-# include <stdio.h>
-# include <termios.h>
 # include <term.h>
+# include <stdio.h>
+# include <signal.h>
+# include <termios.h>
+# include <sys/ioctl.h>
+# include "../libft/minilibft.h"
 
 typedef struct		s_clect
 {
@@ -27,5 +29,17 @@ typedef struct		s_clect
 ** ft_select.c
 */
 int		main(int ac, char **av);
+
+/*
+** signals.c
+*/
+void		ft_signals(void);
+
+/*
+** utils.c
+*/
+void	ft_termcmd(char *s);
+t_clect	*get_clect(t_clect *t);
+
 
 #endif
