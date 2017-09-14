@@ -27,6 +27,8 @@ static void	start_term(t_clect *t)
 	t->term.c_cc[VMIN] = 1;
 	t->term.c_cc[VTIME] = 0;
 	tcsetattr(0, TCSADRAIN, &t->term);
+	ft_termcmd("ti");
+	ft_termcmd("vi");
 }
 
 int		main(int ac, char **av)
@@ -35,9 +37,13 @@ int		main(int ac, char **av)
 	int i;
 	char	**tmp;
 
-	(void)ac;
 	(void)av;
+	if (ac < 2)
+		ft_error("No arguments");
+	ft_signals();
+	get_clect(&t);
 	start_term(&t);
+
 	if (av[1])
 	{
 		tmp = &av[1];
