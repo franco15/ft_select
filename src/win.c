@@ -17,17 +17,17 @@ static int	validate_win(t_clect *t)
 	// int	i;
 
 	// i = 0;
-	printf("%d\n", t->row);
-	if ((int)ft_arrlen((void**)t->av1) == t->row)
+	// printf("%d\n", t->row);
+	if ((int)ft_arrlen((void**)t->av) <= t->row)
 		return (1);
 	return (0);
 
 }
 
-static void	ft_printwin_fd(char *str)
-{
-	ft_putstr_fd(str, 2);
-}
+// static void	ft_printwin_fd(char *str)
+// {
+// 	ft_putstr_fd(str, 2);
+// }
 
 static void	print_win(t_clect *t)
 {
@@ -36,8 +36,8 @@ static void	print_win(t_clect *t)
 	i = 0;
 	ft_clearscreen(t->row);
 	ft_cursor_goto(0, 0);
-	while (i < t->row)
-		ft_printwin_fd(t->av1[i++]);
+	while (t->av[i])
+		printf("%s\n", t->av[i++]);
 }
 
 void	check_win(int signum)
@@ -57,7 +57,8 @@ void	check_win(int signum)
 	else
 	{
 		ft_clearscreen(t->row);
-		ft_printfcolor("%s", "no cabe :V", 31);
+		printf("no cabe :v\n");
+		// ft_printfcolor("%s", "no cabe :V", 31);
 	}
 	// if (t->av1)
 	// {

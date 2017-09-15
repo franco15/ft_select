@@ -14,21 +14,21 @@
 
 void	read_key(t_clect *t)
 {
-	int		i;
+	// int		i;
 	long	k;
 
 	(void)t;
 	k = 0;
 	while ((read(0, &k, 8)) != 0)
 	{
-		i = 1;
+		// i = 1;
 		if (k == KEY_ESC)
 			safe_exit(0);
-		if (k == KEY_SPC)
-			ft_putstr_fd("qqqqqqqqqqqqqqqqppppppppppppppp\n", 2);
-		else
-			i = 0;
-		(i > 0) ? check_win(0) : 0;
+		else if (k == KEY_SPC)
+			printf("qqqqqqqqqqqqqpppppppppp\n");
+		// else
+			// i = 0;
+		// (i > 0) ? check_win(0) : 0;
 		k = 0;
 	}
 }

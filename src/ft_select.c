@@ -33,8 +33,8 @@ static void	start_term(t_clect *t)
 
 void	set_t(t_clect *t, int ac, char **av)
 {
-	(void)ac;
-	t->av1 = &av[1];
+	t->ac = ac - 1;
+	t->av = av + 1;
 }
 
 int		main(int ac, char **av)

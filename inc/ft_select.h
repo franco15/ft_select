@@ -27,7 +27,8 @@ typedef struct		s_clect
 {
 	int				row;
 	int				col;
-	char			**av1;
+	int				ac;
+	char			**av;
 	struct termios	term;
 }					t_clect;
 
