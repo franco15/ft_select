@@ -26,7 +26,8 @@ static void	start_term(t_clect *t)
 	t->term.c_lflag &= ~(ICANON | ECHO);
 	t->term.c_cc[VMIN] = 1;
 	t->term.c_cc[VTIME] = 0;
-	tcsetattr(0, TCSADRAIN, &t->term);
+	if (tcsetattr(0, TCSADRAIN, &t->term))
+		ft_error("did not setattr");
 	ft_termcmd("ti");
 	ft_termcmd("vi");
 }
@@ -50,6 +51,5 @@ int		main(int ac, char **av)
 	start_term(&t);
 	check_win(0);
 	read_key(&t);
-	printf("smn\n");
 	return (0);
 }

@@ -28,6 +28,7 @@ typedef struct		s_clect
 	int				row;
 	int				col;
 	int				ac;
+	int				cursor;
 	char			**av;
 	struct termios	term;
 }					t_clect;
@@ -55,6 +56,7 @@ void	ft_termcmd(char *s);
 t_clect	*get_clect(t_clect *t);
 void	ft_clearscreen(int rows);
 void	ft_cursor_goto(int x, int y);
+void	escape(void);
 
 /*
 ** win.c

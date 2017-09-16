@@ -47,7 +47,7 @@ void	check_win(int signum)
 	t_clect	*t;
 	struct winsize win;
 
-	signum++;
+	(void)signum;
 	t = get_clect(0);
 	ioctl(STDIN_FILENO, TIOCGWINSZ, &win);
 	t->row = win.ws_row;

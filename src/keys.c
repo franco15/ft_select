@@ -23,9 +23,9 @@ void	read_key(t_clect *t)
 	{
 		// i = 1;
 		if (k == KEY_ESC)
-			safe_exit(0);
+			escape();
 		else if (k == KEY_SPC)
-			printf("qqqqqqqqqqqqqpppppppppp\n");
+			printf("%d\n", t->row);
 		// else
 			// i = 0;
 		// (i > 0) ? check_win(0) : 0;

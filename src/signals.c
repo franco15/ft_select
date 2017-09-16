@@ -16,7 +16,7 @@ void	safe_exit(int signum)
 {
 	// t_clect	*t;
 
-	signum++;
+	(void)signum;
 	// t = get_clect(0);
 	// ft_memdel((void**)&t);
 	ft_termcmd("te");
