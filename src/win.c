@@ -14,20 +14,13 @@
 
 static int	validate_win(t_clect *t)
 {
-	// int	i;
+	int	i;
 
-	// i = 0;
-	// printf("%d\n", t->row);
-	if ((int)ft_arrlen((void**)t->av) <= t->row)
-		return (1);
-	return (0);
-
+	i = t->ac / t->row;
+	if (t->ac % t->row)
+		i += 1;
+	return ((i * t->ncols) < t->col);
 }
-
-// static void	ft_printwin_fd(char *str)
-// {
-// 	ft_putstr_fd(str, 2);
-// }
 
 static void	print_win(t_clect *t)
 {
@@ -42,8 +35,6 @@ static void	print_win(t_clect *t)
 
 void	check_win(int signum)
 {
-	// int i;
-	// char	**tmp;
 	t_clect	*t;
 	struct winsize win;
 
@@ -57,13 +48,7 @@ void	check_win(int signum)
 	else
 	{
 		ft_clearscreen(t->row);
-		printf("no cabe :v\n");
+		ft_putstr_fd("no cabe :v\n", 2);
 		// ft_printfcolor("%s", "no cabe :V", 31);
 	}
-	// if (t->av1)
-	// {
-	// 	tmp = t->av1;
-	// 	for (i = 0; tmp[i]; i++)
-	// 		printf("%s\n", tmp[i]);
-	// }
 }

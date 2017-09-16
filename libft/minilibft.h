@@ -13,6 +13,7 @@
 #ifndef MINILIBFT_H
 # define MINILIBFT_H
 
+# include <term.h>
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
@@ -86,6 +87,14 @@ void	ft_strdel(char **as);
 char	*ft_strndup(const char *s1, size_t l);
 char	*ft_strncpy(char *dst, const char *src, size_t len);
 char	**ft_strsplit(char const *s, char c);
+
+/*
+** term.c
+*/
+void	ft_termcmd(char *s);
+void	ft_clearscreen(int rows);
+void	ft_cursor_goto(int x, int y);
+size_t	ft_max_len(char **s);
 
 /*
 ** xtra.c
