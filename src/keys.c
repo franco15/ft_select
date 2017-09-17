@@ -12,23 +12,48 @@
 
 #include "ft_select.h"
 
-void	read_key(t_clect *t)
+static void	arrows(t_clect *t, long k)
 {
-	// int		i;
+	if (k == KEY_LEFT && (t->cursor - t->row) < t->ac &&
+		(t->cursor - t->row) >= 0)
+		t->cursor -= t->row;
+	else if (k == KEY_UP)
+		t->cursor == 0 ? (t->cursor = t->ac - 1) : t->cursor--;
+	else if (k == KEY_DERE && (t->cursor + t->row) < t->ac)
+		t->cursor += t->row;
+	else if (k == KEY_DOWN)
+	{
+		if (t->cursor == t->ac - 1)
+			t->cursor = 0;
+		else if (t->cursor < t->ac)
+			t->cursor++;
+	}
+}
+
+void		read_key(t_clect *t)
+{
+	int		i;
 	long	k;
 
-	(void)t;
 	k = 0;
 	while ((read(0, &k, 8)) != 0)
 	{
-		// i = 1;
-		if (k == KEY_ESC)
-			safe_exit(0);
+		i = 1;
+		printf("%ld\n", k);
+		if (k == KEY_LEFT || k == KEY_UP || k == KEY_DERE || k == KEY_DOWN)
+			arrows(t, k);
+		else if (k == KEY_ENTER)
+			return_choisi(t);
 		else if (k == KEY_SPC)
-			printf("cols: %d rows: %d ac: %d\n", t->col, t->row, t->ac);
-		// else
-			// i = 0;
-		// (i > 0) ? check_win(0) : 0;
+			t->choisi[t->cursor] == 0 ? ((t->choisi[t->cursor] = 1) &&
+				(t->selected++)) : ((t->choisi[t->cursor] = 0) && (t->selected -= 1));
+		// else if (k == KEY_DEL || k == KEY_BSP)
+		// 	erase_choisi(t);
+		else if (k == KEY_ESC)
+			safe_exit(0);
+		else
+			i = 0;
+		(i > 0) ? check_win(0) : 0;
 		k = 0;
 	}
 }

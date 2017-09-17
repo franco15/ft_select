@@ -20,8 +20,15 @@
 # include <sys/ioctl.h>
 # include "../libft/minilibft.h"
 
-# define KEY_SPC	32
+# define KEY_BSP	8
+# define KEY_ENTER	10
 # define KEY_ESC	27
+# define KEY_SPC	32
+# define KEY_LEFT	4479771
+# define KEY_UP		4283163
+# define KEY_DERE	4414235
+# define KEY_DOWN	4348699
+# define KEY_DEL	46
 
 typedef struct		s_clect
 {
@@ -31,6 +38,7 @@ typedef struct		s_clect
 	int				max;
 	int				cursor;
 	int				*choisi;
+	int				selected;
 	char			**av;
 	struct termios	term;
 }					t_clect;
@@ -60,5 +68,6 @@ t_clect	*get_clect(t_clect *t);
 ** win.c
 */
 void	check_win(int signum);
+void	return_choisi(t_clect *t);
 
 #endif

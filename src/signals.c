@@ -18,7 +18,8 @@ void	safe_exit(int signum)
 
 	(void)signum;
 	t = get_clect(0);
-	ft_clearscreen(t->row);
+	ft_memdel((void**)&t->choisi);
+	// ft_clearscreen(t->row);
 	t->term.c_lflag |= (ICANON | ECHO);
 	tcsetattr(0, TCSANOW, &t->term);
 	ft_termcmd("te");

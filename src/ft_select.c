@@ -36,6 +36,7 @@ void	set_t(t_clect *t, int ac, char **av)
 {
 	t->max = ft_max_len(&av[1]);
 	t->choisi = (int*)ft_memalloc(sizeof(int) * (ac - 1));
+	t->selected = 0;
 	t->cursor = 0;
 	t->av = av + 1;
 	t->ac = ac - 1;

@@ -22,18 +22,6 @@ static int	validate_win(t_clect *t)
 	return ((i * t->max) < t->col);
 }
 
-// static void	print_win(t_clect *t)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (t->av[i])
-// 	{
-// 		ft_cursor_goto(0, i);
-// 		printf("%s\n", t->av[i++]);
-// 	}
-// }
-
 static void	put_thing(t_clect *t, char *s, int cursor)
 {
 	if (cursor == t->cursor)
