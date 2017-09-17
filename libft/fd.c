@@ -23,3 +23,12 @@ void	ft_putstr_fd(char const *s, int fd)
 		while (*s)
 			ft_putchar_fd((char)*s++, fd);
 }
+
+void	ft_putcharn_fd(int c, int n, int fd)
+{
+	while (n)
+	{
+		ft_putchar_fd(c, fd);
+		n--;
+	}
+}

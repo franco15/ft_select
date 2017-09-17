@@ -19,17 +19,49 @@ static int	validate_win(t_clect *t)
 	i = t->ac / t->row;
 	if (t->ac % t->row)
 		i += 1;
-	return ((i * t->ncols) < t->col);
+	return ((i * t->max) < t->col);
+}
+
+// static void	print_win(t_clect *t)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (t->av[i])
+// 	{
+// 		ft_cursor_goto(0, i);
+// 		printf("%s\n", t->av[i++]);
+// 	}
+// }
+
+static void	put_thing(t_clect *t, char *s, int cursor)
+{
+	if (cursor == t->cursor)
+		ft_termcmd("us");
+	if (t->choisi[cursor])
+		ft_termcmd("so");
+	ft_putstr_fd(s, 2);
+	ft_termcmd("ue");
+	ft_termcmd("se");
+	ft_putcharn_fd(' ', t->max - ft_strlen(s) + 4, 2);
+
 }
 
 static void	print_win(t_clect *t)
 {
 	int	i;
+	int	col;
+	int	row;
 
-	i = 0;
-	ft_cursor_goto(0, 0);
-	while (t->av[i])
-		printf("%s\n", t->av[i++]);
+	row = 0;
+	while (row < t->ac && row < t->row)
+	{
+		col = 0;
+		ft_cursor_goto(0, row);
+		while ((i = (col++ * t->row) + row) < t->ac)
+			put_thing(t, t->av[i], i);
+		row++;
+	}
 }
 
 void	check_win(int signum)

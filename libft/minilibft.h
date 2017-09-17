@@ -35,6 +35,7 @@ char	*ft_itoa_base(long long int n, int b);
 */
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char const *s, int fd);
+void	ft_putcharn_fd(int c, int n, int fd);
 
 /*
 ** ft_printf.c

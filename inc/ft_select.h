@@ -28,8 +28,9 @@ typedef struct		s_clect
 	int				ac;
 	int				row;
 	int				col;
-	int				ncols;
+	int				max;
 	int				cursor;
+	int				*choisi;
 	char			**av;
 	struct termios	term;
 }					t_clect;

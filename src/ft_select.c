@@ -34,7 +34,9 @@ static void	start_term(t_clect *t)
 
 void	set_t(t_clect *t, int ac, char **av)
 {
-	t->ncols = ft_max_len(&av[1]);
+	t->max = ft_max_len(&av[1]);
+	t->choisi = (int*)ft_memalloc(sizeof(int) * (ac - 1));
+	t->cursor = 0;
 	t->av = av + 1;
 	t->ac = ac - 1;
 }
