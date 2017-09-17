@@ -20,16 +20,3 @@ t_clect	*get_clect(t_clect *t)
 		tt = t;
 	return (tt);
 }
-
-void	escape(void)
-{
-	t_clect	*t;
-
-	t = get_clect(0);
-	ft_clearscreen(t->row);
-	t->term.c_lflag |= (ICANON | ECHO);
-	tcsetattr(0, TCSANOW, &t->term);
-	ft_termcmd("te");
-	ft_termcmd("ve");
-	exit(3);
-}

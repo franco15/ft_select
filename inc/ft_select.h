@@ -54,7 +54,6 @@ void	ft_signals(void);
 ** utils.c
 */
 t_clect	*get_clect(t_clect *t);
-void	escape(void);
 
 /*
 ** win.c

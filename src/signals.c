@@ -14,11 +14,13 @@
 
 void	safe_exit(int signum)
 {
-	// t_clect	*t;
+	t_clect	*t;
 
 	(void)signum;
-	// t = get_clect(0);
-	// ft_memdel((void**)&t);
+	t = get_clect(0);
+	ft_clearscreen(t->row);
+	t->term.c_lflag |= (ICANON | ECHO);
+	tcsetattr(0, TCSANOW, &t->term);
 	ft_termcmd("te");
 	ft_termcmd("ve");
 	exit(1);

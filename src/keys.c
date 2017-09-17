@@ -23,7 +23,7 @@ void	read_key(t_clect *t)
 	{
 		// i = 1;
 		if (k == KEY_ESC)
-			escape();
+			safe_exit(0);
 		else if (k == KEY_SPC)
 			printf("cols: %d rows: %d ac: %d\n", t->col, t->row, t->ac);
 		// else

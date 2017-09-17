@@ -27,7 +27,6 @@ static void	print_win(t_clect *t)
 	int	i;
 
 	i = 0;
-	ft_clearscreen(t->row);
 	ft_cursor_goto(0, 0);
 	while (t->av[i])
 		printf("%s\n", t->av[i++]);
@@ -43,12 +42,10 @@ void	check_win(int signum)
 	ioctl(STDIN_FILENO, TIOCGWINSZ, &win);
 	t->row = win.ws_row;
 	t->col = win.ws_col;
+	ft_clearscreen(t->row);
 	if (validate_win(t))
 		print_win(t);
 	else
-	{
-		ft_clearscreen(t->row);
 		ft_putstr_fd("no cabe :v\n", 2);
 		// ft_printfcolor("%s", "no cabe :V", 31);
-	}
 }
