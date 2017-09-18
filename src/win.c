@@ -59,7 +59,7 @@ void	check_win(int signum)
 
 	(void)signum;
 	t = get_clect(0);
-	ioctl(STDIN_FILENO, TIOCGWINSZ, &win);
+	ioctl(0, TIOCGWINSZ, &win);
 	t->row = win.ws_row;
 	t->col = win.ws_col;
 	ft_clearscreen(t->row);

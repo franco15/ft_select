@@ -28,8 +28,35 @@ void	safe_exit(int signum)
 	exit(1);
 }
 
-// void		suspend_term(int signum);
-// void		continue_term(int signum);
+void		suspend_term(int signum)
+{
+	t_clect	*t;
+	char	tmp[3];
+
+	(void)signum;
+	t = get_clect(0);
+	ft_clearscreen(t->row);
+	t->term.c_lflag |= (ICANON | ECHO);
+	tcsetattr(0, TCSANOW, &t->term);
+	ft_termcmd("te");
+	ft_termcmd("ve");
+	signal(SIGTSTP, SIG_DFL);
+	tmp[0] = t->term.c_cc[VSUSP];
+	tmp[1] = '\n';
+	tmp[2] = '\0';
+	ioctl(0, TIOCSTI, &tmp);
+}
+
+void		continue_term(int signum)
+{
+	t_clect	*t;
+
+	(void)signum;
+	t = get_clect(0);
+	start_term(t);
+	ft_signals();
+	check_win(0);
+}
 
 void		ft_signals(void)
 {
@@ -55,7 +82,7 @@ void		ft_signals(void)
 	signal(SIGPROF, safe_exit);
 	signal(SIGUSR1, safe_exit);
 	signal(SIGUSR2, safe_exit);
-	// signal(SIGTSTP, suspend_term);
-	// signal(SIGCONT, continue_term);
+	signal(SIGTSTP, suspend_term);
+	signal(SIGCONT, continue_term);
 	signal(SIGWINCH, check_win);
 }

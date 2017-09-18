@@ -47,6 +47,7 @@ typedef struct		s_clect
 ** ft_select.c
 */
 int		main(int ac, char **av);
+void	start_term(t_clect *t);
 
 /*
 ** keys.c
