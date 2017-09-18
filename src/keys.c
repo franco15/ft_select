@@ -30,6 +30,30 @@ static void	arrows(t_clect *t, long k)
 	}
 }
 
+static void	erase_selection(t_clect *t)
+{
+	int	i;
+
+	i = t->cursor;
+	t->ac--;
+	free(t->av[i]);
+	if (t->choisi[i])
+		t->selected--;
+	while (t->av[i + 1])
+	{
+		t->av[i] = t->av[i + 1];
+		i++;
+	}
+	t->av[i] = 0;
+	i = t->cursor;
+	while (t->choisi[i + 1])
+	{
+		t->choisi[i] = t->choisi[i + 1];
+		i++;
+	}
+	t->choisi[i] = 0;
+}
+
 void		read_key(t_clect *t)
 {
 	int		i;
@@ -42,13 +66,13 @@ void		read_key(t_clect *t)
 		printf("%ld\n", k);
 		if (k == KEY_LEFT || k == KEY_UP || k == KEY_DERE || k == KEY_DOWN)
 			arrows(t, k);
-		else if (k == KEY_ENTER)
-			return_choisi(t);
+		else if (k == KEY_ENTER || k == KEY_DEL || k == KEY_BSP)
+			k == KEY_ENTER ? return_choisi(t) : erase_selection(t);
 		else if (k == KEY_SPC)
-			t->choisi[t->cursor] == 0 ? ((t->choisi[t->cursor] = 1) &&
-				(t->selected++)) : ((t->choisi[t->cursor] = 0) && (t->selected -= 1));
-		// else if (k == KEY_DEL || k == KEY_BSP)
-		// 	erase_choisi(t);
+		{
+			t->choisi[t->cursor] == 0 ? (t->choisi[t->cursor] = 1) : (t->choisi[t->cursor] = 0);
+			t->choisi[t->cursor] == 1 ? t->selected++ : t->selected--;
+		}
 		else if (k == KEY_ESC)
 			safe_exit(0);
 		else
