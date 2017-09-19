@@ -52,6 +52,10 @@ static void	erase_selection(t_clect *t)
 		i++;
 	}
 	t->choisi[i] = 0;
+	if (t->cursor >= t->ac - 1)
+		t->cursor--;
+	if (!ft_arrlen((void**)t->av))
+		safe_exit(0);
 }
 
 void		read_key(t_clect *t)

@@ -12,7 +12,7 @@
 
 #include "ft_select.h"
 
-static void	start_term(t_clect *t)
+void	start_term(t_clect *t)
 {
 	int		i;
 	char	*env;
