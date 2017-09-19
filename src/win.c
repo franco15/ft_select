@@ -62,7 +62,9 @@ void		check_win(int signum)
 	t->row = win.ws_row;
 	t->col = win.ws_col;
 	ft_clearscreen(t->row);
-	if (validate_win(t))
+	if (t->menu)
+		ft_menu(t);
+	else if (validate_win(t))
 		print_win(t);
 	else
 		ft_printfcolor("%s", "no cabe :V", 31);

@@ -23,6 +23,7 @@
 # define KEY_ENTER	10
 # define KEY_ESC	27
 # define KEY_SPC	32
+# define KEY_C		99
 # define KEY_M		109
 # define KEY_BSP	127
 # define KEY_LEFT	4479771
@@ -37,6 +38,7 @@ typedef struct		s_clect
 	int				row;
 	int				col;
 	int				max;
+	int				menu;
 	int				cursor;
 	int				*choisi;
 	int				selected;
@@ -58,7 +60,7 @@ void	read_key(t_clect *t);
 /*
 ** menu.c
 */
-int		ft_menu(t_clect *t);
+void	ft_menu(t_clect *t);
 
 /*
 ** signals.c
