@@ -11,7 +11,7 @@ INC_DIR = ./inc/
 LIBFT_DIR = ./libft/
 
 # Source files and object files
-SRC_FILES = ft_select.c keys.c signals.c utils.c win.c
+SRC_FILES = ft_select.c keys.c menu.c signals.c utils.c win.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
 # Paths

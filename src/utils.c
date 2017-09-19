@@ -37,14 +37,14 @@ void	return_choisi(t_clect *t)
 	{
 		if (t->choisi[i])
 		{
-			printf("%s", t->av[i]);
+			ft_printf("%s", t->av[i]);
 			if (++j == t->selected)
 				break ;
-			printf(" ");
+			ft_printf(" ");
 		}
 		i++;
 	}
-	printf("\n");
+	ft_printf("\n");
 	ft_memdel((void**)&t->choisi);
 	ft_memdel((void**)t->av);
 	exit(1);
