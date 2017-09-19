@@ -67,14 +67,14 @@ void		read_key(t_clect *t)
 	while ((read(0, &k, 8)) != 0)
 	{
 		i = 1;
-		printf("%ld\n", k);
 		if (k == KEY_LEFT || k == KEY_UP || k == KEY_DERE || k == KEY_DOWN)
 			arrows(t, k);
 		else if (k == KEY_ENTER || k == KEY_DEL || k == KEY_BSP)
 			k == KEY_ENTER ? return_choisi(t) : erase_selection(t);
 		else if (k == KEY_SPC)
 		{
-			t->choisi[t->cursor] == 0 ? (t->choisi[t->cursor] = 1) : (t->choisi[t->cursor] = 0);
+			t->choisi[t->cursor] == 0 ? (t->choisi[t->cursor] = 1) :
+													(t->choisi[t->cursor] = 0);
 			t->choisi[t->cursor] == 1 ? t->selected++ : t->selected--;
 		}
 		else if (k == KEY_ESC)

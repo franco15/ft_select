@@ -12,7 +12,7 @@
 
 #include "ft_select.h"
 
-void	safe_exit(int signum)
+void		safe_exit(int signum)
 {
 	t_clect	*t;
 
@@ -20,7 +20,7 @@ void	safe_exit(int signum)
 	t = get_clect(0);
 	ft_memdel((void**)&t->choisi);
 	ft_memdel((void**)t->av);
-	// ft_clearscreen(t->row);
+	ft_clearscreen(t->row);
 	t->term.c_lflag |= (ICANON | ECHO);
 	tcsetattr(0, TCSANOW, &t->term);
 	ft_termcmd("te");
@@ -66,7 +66,7 @@ void		ft_signals(void)
 	signal(SIGILL, safe_exit);
 	signal(SIGTRAP, safe_exit);
 	signal(SIGABRT, safe_exit);
-	// signal(SIGEMT, safe_exit);
+	signal(SIGEMT, safe_exit);
 	signal(SIGFPE, safe_exit);
 	signal(SIGBUS, safe_exit);
 	signal(SIGSEGV, safe_exit);

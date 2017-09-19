@@ -32,7 +32,6 @@ static void	put_thing(t_clect *t, char *s, int cursor)
 	ft_termcmd("ue");
 	ft_termcmd("se");
 	ft_putcharn_fd(' ', t->max - ft_strlen(s) + 4, 2);
-
 }
 
 static void	print_win(t_clect *t)
@@ -52,10 +51,10 @@ static void	print_win(t_clect *t)
 	}
 }
 
-void	check_win(int signum)
+void		check_win(int signum)
 {
-	t_clect	*t;
-	struct winsize win;
+	t_clect			*t;
+	struct winsize	win;
 
 	(void)signum;
 	t = get_clect(0);
@@ -66,6 +65,6 @@ void	check_win(int signum)
 	if (validate_win(t))
 		print_win(t);
 	else
-		ft_putstr_fd("no cabe :v\n", 2);
-		// ft_printfcolor("%s", "no cabe :V", 31);
+		ft_printfcolor("%s", "no cabe :V", 31);
+		// ft_putstr_fd("no cabe :v\n", 2);
 }
