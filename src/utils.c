@@ -44,7 +44,7 @@ void	return_choisi(t_clect *t)
 		}
 		i++;
 	}
-	ft_printf("\n");
+	t->selected > 0 ? ft_printf("\n") : 0;
 	ft_memdel((void**)&t->choisi);
 	ft_memdel((void**)t->av);
 	exit(1);

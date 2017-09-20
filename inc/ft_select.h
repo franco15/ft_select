@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT
-# define FT_SELECT
+#ifndef FT_SELECT_H
+# define FT_SELECT_H
 
 # include <term.h>
 # include <stdio.h>
@@ -49,34 +49,34 @@ typedef struct		s_clect
 /*
 ** ft_select.c
 */
-int		main(int ac, char **av);
-void	start_term(t_clect *t);
+int					main(int ac, char **av);
+void				start_term(t_clect *t);
 
 /*
 ** keys.c
 */
-void	read_key(t_clect *t);
+void				read_key(t_clect *t);
 
 /*
 ** menu.c
 */
-void	ft_menu(t_clect *t);
+void				ft_menu(t_clect *t);
 
 /*
 ** signals.c
 */
-void	safe_exit(int signum);
-void	ft_signals(void);
+void				safe_exit(int signum);
+void				ft_signals(void);
 
 /*
 ** utils.c
 */
-t_clect	*get_clect(t_clect *t);
+t_clect				*get_clect(t_clect *t);
 
 /*
 ** win.c
 */
-void	check_win(int signum);
-void	return_choisi(t_clect *t);
+void				check_win(int signum);
+void				return_choisi(t_clect *t);
 
 #endif

@@ -73,7 +73,7 @@ void		read_key(t_clect *t)
 			k == KEY_ENTER ? return_choisi(t) : erase_selection(t);
 		else if (k == KEY_SPC)
 		{
-			t->choisi[t->cursor] = t->choisi[t->cursor] == 0 ? 1 :0;
+			t->choisi[t->cursor] = t->choisi[t->cursor] == 0 ? 1 : 0;
 			t->choisi[t->cursor] == 1 ? t->selected++ : t->selected--;
 		}
 		else if (k == KEY_M)

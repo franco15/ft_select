@@ -68,5 +68,4 @@ void		check_win(int signum)
 		print_win(t);
 	else
 		ft_printfcolor("%s", "no cabe :V", 31);
-		// ft_putstr_fd("no cabe :v\n", 2);
 }

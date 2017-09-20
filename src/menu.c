@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_select.h"
+
 static void	print_how_to_ft_select(void)
 {
 	ft_printfcolor("\n%s%s%s %s%s %s%s%s%s%s%s%s%s%s\n", "H",
@@ -47,7 +48,6 @@ static void	print_instructions(void)
 		"exit and return selected items", i - 60);
 	i = (rand() % (96 + 1 - 91) + 91);
 	ft_printfcolor("%s              | %s\n", "esc", i, "exit program", i - 60);
-
 }
 
 static void	print_header(void)
@@ -72,11 +72,10 @@ __  _\\ \n", (rand() % (96 + 1 - 91) + 91));
 void		ft_menu(t_clect *t)
 {
 	ft_clearscreen(t->row);
-	if (t->row > 18 && t->col > 63)
+	if (t->row > 18 && t->col > 64)
 	{
 		print_header();
 		print_instructions();
-		// printf("rows %d col %d\n", t->row, t->col);
 	}
 	else
 		ft_printfcolor("%s\n", "no cabe menu :v", 31);
